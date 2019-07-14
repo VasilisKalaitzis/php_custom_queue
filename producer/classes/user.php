@@ -40,6 +40,9 @@ class User {
         // insert message into the queeu so that consumer will take the necessary actions
         require_once(dirname(__FILE__) . '/../db.php');
         
+
+        // probably the producer has no access to the database. In such case this 
+        // should probably move to the consumer's api instead. 
         $result = mysqli_query(
             $con,
             "INSERT INTO queue(`action`,`data`) VALUES ('recover_password','$this->username')");
