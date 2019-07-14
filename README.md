@@ -1,12 +1,12 @@
 This is a simple example of queue implementation.
 
-There are 3 applications in this repository
+# Applications
 
-## consumer: handles the queue and the requests of the producer
+consumer: handles the queue and the requests of the producer
 
-## producer: handles the requests of the webserver, pushes messages to the queue or send requests to the consumer's api
+producer: handles the requests of the webserver, pushes messages to the queue or send requests to the consumer's api
 
-## webserver: the front end of the application
+webserver: the front end of the application
 
 # HOW TO INSTALL
 
