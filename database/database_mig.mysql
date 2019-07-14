@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `queue` (
 `action` varchar(50) NOT NULL,
 `data` varchar(50) NOT NULL,
 PRIMARY KEY (`id`),
-UNIQUE KEY `order_id` (`order_id`)
+UNIQUE KEY `order_id` (`id`)
 );
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 `email` varchar(50) NOT NULL,
 `status` BOOL NOT NULL,
 PRIMARY KEY (`id`),
-UNIQUE KEY `order_id` (`order_id`)
+UNIQUE KEY `id` (`id`)
 );
 
-INSERT INTO `users` values ('helloprint','P@ssw0rd!','test@asdasd.com',1)
+INSERT INTO `users` values (0,'helloprint','P@ssw0rd!','test@asdasd.com',1)

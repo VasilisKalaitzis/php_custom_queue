@@ -4,16 +4,13 @@ body {
   margin: 0px;
   min-height: 100%;
 }
-
 .content {
   height: -webkit-fill-available;
   position: relative;
 }
-
 form {
   width: 100%;
 }
-
 .beau-textbox {
   background: transparent;
   border: 0;
@@ -38,7 +35,6 @@ form {
   padding: 0 63px;
   cursor: pointer;
   border-radius: 10px;
-  -webkit-transition: 800ms ease all;
   transition: 800ms ease all;
   outline: none;
   width: 100%;
@@ -56,4 +52,3 @@ form {
 .align-center {
   text-align: center !important;
 }
-/*# sourceMappingURL=index.css.map */

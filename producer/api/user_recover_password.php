@@ -3,21 +3,16 @@ header("Content-Type:application/json");
 header("Access-Control-Allow-Origin: *");
 
 if (isset($_POST['username']) AND $_POST['username']!="") {
-	include('db.php');
-	$username = $_POST['username'];
-	
-	
-	$result = mysqli_query(
-		$con,
-		"INSERT INTO queue(`action`,`data`) VALUES ('recover_password','[$username]')");
+	http_response_code(500);
 
-	if ($result) {
-		http_response_code(200);
-		response(NULL, 200,"Your password has been send to your emails");
-	} else {
-		http_response_code(500);
-		response($result, 500,"Internal error");
-	}
+	// include class from file
+	include( dirname(__FILE__) . '/../classes/user.php');
+	$user = new User($_POST['username']);
+	
+	$user->recover_password();
+
+	http_response_code(200);
+	response(NULL, 200,"Your password has been send to your emails");
 } else {
 	http_response_code(400);
     response(NULL, 400,"Invalid Input");

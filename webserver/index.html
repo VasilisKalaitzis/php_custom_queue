@@ -70,9 +70,11 @@
         Http.onreadystatechange = e => {
           if (Http.readyState === 4) {
             if (Http.status === 200) {
+              //tech dept: use the response's message
               document.getElementById("alert").innerHTML = "Check your emails";
             } else {
               console.log("Error", Http.statusText);
+              //tech dept: use the response's message
               document.getElementById("alert").innerHTML = "User not Found";
             }
           }
@@ -97,9 +99,11 @@
         Http.onreadystatechange = e => {
           if (Http.readyState === 4) {
             if (Http.status === 200) {
+              //tech dept: use the response's message
               document.getElementById("alert").innerHTML = "You have logged in";
             } else {
               console.log("Error", Http.statusText);
+              //tech dept: use the response's message
               document.getElementById("alert").innerHTML = "User not Found";
             }
           }

@@ -2,28 +2,20 @@
 header("Content-Type:application/json");
 header("Access-Control-Allow-Origin: *");
 
+
 if (isset($_POST['username']) AND $_POST['username']!="" AND isset($_POST['password']) AND $_POST['password']!="") {
-	include('db.php');
+	http_response_code(500);
 
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-
-	$result = mysqli_query(
-		$con,
-		"SELECT id FROM `users` WHERE username='$username' AND password='$password'");
-		
-	$rows = $result->num_rows;
-	if ($result) {
-		if($rows === 1){
+	// include class from file
+	include( dirname(__FILE__) . '/../classes/user.php');
+	$user = new User($_POST['username'],$_POST['password']);
+	
+	if ($user->login() === 1) {
 			http_response_code(200);
-			response(NULL, 200,"You have successfully logged in!");
-		} else {
-			http_response_code(402);
-			response(NULL, 402,"User not Found");
-		}
+			response($result, 200,"You have successfully logged in!");
 	} else {
-		http_response_code(500);
-		response(NULL, 500,"Internal error");
+		http_response_code(402);
+		response(NULL, 404,"User not Found");
 	}
 } else {
 	http_response_code(400);
