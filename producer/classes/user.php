@@ -13,6 +13,9 @@ class User {
 
    function login()
    {
+       // This should probably be a part of the webserver, producer should only have added
+       // the messages to the queue 
+
         // ask consumer if the user exists
 	    $params=['username'=>$this->username, 'password'=> $this->password];
 	    $options = array(

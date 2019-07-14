@@ -22,6 +22,13 @@ Add the consumer and the producer to the server (apache)
 
 Both consumer and producer contains a db.php file. Modify it accordingly to match the server's db
 
+## Configure the URLS
+
+The are some hardcoded URLs on the code.
+
+1. On producer/classes/user.php, CURLOPT_URL should be reflecting the consumer's URL
+2. On webserver/index.html, url variable should reflecting the producer's URL
+
 ## Start the queue
 
 Execute the queue.php file found on the consumer. This will start a background job which will constantly checks the db for new records
