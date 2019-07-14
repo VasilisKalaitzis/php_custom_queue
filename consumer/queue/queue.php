@@ -3,6 +3,7 @@ session_start();
 include(dirname(__FILE__) . '/../db.php');
 
 // here we retrieve the messages from the queue
+// Notice, there should be only one queue running on the background
 if(!isset($_SESSION["queue_running"])) {
     $_SESSION["queue_running"] = 1;
     while(1) {

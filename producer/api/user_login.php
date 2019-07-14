@@ -15,7 +15,7 @@ if (isset($_POST['username']) AND $_POST['username']!="" AND isset($_POST['passw
 			response($result, 200,"You have successfully logged in!");
 	} else {
 		http_response_code(402);
-		response(NULL, 404,"User not Found");
+		response(NULL, 404,"Bad combination of username and password");
 	}
 } else {
 	http_response_code(400);

@@ -55,9 +55,9 @@
   </body>
   <footer>
     <script>
+      // remove form's submit default functionality
       const form = document.forms[0];
       form.addEventListener("submit", form_handler);
-
       function form_handler(event) {
         event.preventDefault();
       }
@@ -75,7 +75,8 @@
             } else {
               console.log("Error", Http.statusText);
               //tech dept: use the response's message
-              document.getElementById("alert").innerHTML = "User not Found";
+              document.getElementById("alert").innerHTML =
+                "Bad combination of username and password";
             }
           }
         };

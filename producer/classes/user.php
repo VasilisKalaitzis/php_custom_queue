@@ -37,14 +37,14 @@ class User {
 
    function recover_password()
    {
-	// insert message into the queeu so that consumer will take the necessary actions
-    require_once(dirname(__FILE__) . '/../db.php');
-    
-	$result = mysqli_query(
-		$con,
-        "INSERT INTO queue(`action`,`data`) VALUES ('recover_password','$this->username')");
+        // insert message into the queeu so that consumer will take the necessary actions
+        require_once(dirname(__FILE__) . '/../db.php');
+        
+        $result = mysqli_query(
+            $con,
+            "INSERT INTO queue(`action`,`data`) VALUES ('recover_password','$this->username')");
 
-    return 1;
+        return 1;
    }
 
 } // end of class Vegetable
