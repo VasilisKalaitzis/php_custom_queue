@@ -1,0 +1,54 @@
+/* bad practise but I have no idea how much time should I spend in each task */
+body {
+  color: black;
+  margin: 0px;
+  min-height: 100%;
+}
+.content {
+  height: -webkit-fill-available;
+  position: relative;
+}
+form {
+  width: 100%;
+}
+.beau-textbox {
+  background: transparent;
+  border: 0;
+  display: inline-block;
+  width: 100%;
+  font-size: 18px;
+  color: #666;
+  overflow: visible;
+  z-index: 1999;
+  border: 1px solid gray;
+}
+
+.beau-button {
+  text-align: center;
+  background: #36f284;
+  vertical-align: middle;
+  color: white;
+  border: none;
+  position: relative;
+  height: 60px;
+  font-size: inherit;
+  padding: 0 63px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 800ms ease all;
+  outline: none;
+  width: 100%;
+}
+
+.beau-button:hover {
+  background: white;
+  color: #36f284;
+}
+
+.form-element {
+  margin: 10px;
+}
+
+.align-center {
+  text-align: center !important;
+}

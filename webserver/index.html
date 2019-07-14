@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/containers.css" />
+  </head>
+  <body>
+    <main class="content">
+      <div class="flexcontainer">
+        <div class="flexcontainer-block col-6">
+          <div class="flexcontainer">
+            <div class="flexcontainer-block col-6">
+              <span><h2>Log In</h2></span>
+            </div>
+          </div>
+          <form>
+            <div class="flexcontainer">
+              <div class="flexcontainer-block col-6">
+                <span>Username</span>
+                <input class="beau-textbox" type="text" name="username" />
+              </div>
+            </div>
+
+            <div class="flexcontainer">
+              <div class="flexcontainer-block col-6">
+                <span>Password</span>
+                <input class="beau-textbox" type="password" name="password" />
+              </div>
+            </div>
+
+            <div class="flexcontainer">
+              <div class="flexcontainer-block col-3 align-center">
+                <button class="beau-button" name="login" onclick="userlogin()">
+                  Log In
+                </button>
+              </div>
+            </div>
+            <div class="flexcontainer">
+              <div class="flexcontainer-block col-3 align-center">
+                <button class="beau-button" onclick="recoverPassword()">
+                  Recover Password
+                </button>
+              </div>
+            </div>
+            <div class="flexcontainer">
+              <div class="flexcontainer-block col-3 align-center">
+                <span id="alert"></span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+  <footer>
+    <script>
+      const form = document.forms[0];
+      form.addEventListener("submit", form_handler);
+
+      function form_handler(event) {
+        event.preventDefault();
+      }
+
+      function recoverPassword() {
+        const Http = new XMLHttpRequest();
+        let url =
+          "http://localhost:8888/producer/api/user_recover_password.php";
+
+        Http.onreadystatechange = e => {
+          if (Http.readyState === 4) {
+            if (Http.status === 200) {
+              document.getElementById("alert").innerHTML = "Check your emails";
+            } else {
+              console.log("Error", Http.statusText);
+              document.getElementById("alert").innerHTML = "User not Found";
+            }
+          }
+        };
+
+        Http.open("POST", url, true);
+        //Send the proper header information along with the request
+        Http.setRequestHeader(
+          "Content-type",
+          "application/x-www-form-urlencoded"
+        );
+
+        let form = document.forms[0];
+        let params = "username=" + form.username.value;
+        Http.send(params);
+      }
+
+      function userlogin() {
+        const Http = new XMLHttpRequest();
+        let url = "http://localhost:8888/producer/api/user_login.php";
+
+        Http.onreadystatechange = e => {
+          if (Http.readyState === 4) {
+            if (Http.status === 200) {
+              document.getElementById("alert").innerHTML = "You have logged in";
+            } else {
+              console.log("Error", Http.statusText);
+              document.getElementById("alert").innerHTML = "User not Found";
+            }
+          }
+        };
+        Http.open("POST", url, true);
+        //Send the proper header information along with the request
+        Http.setRequestHeader(
+          "Content-type",
+          "application/x-www-form-urlencoded"
+        );
+
+        let form = document.forms[0];
+        let params =
+          "username=" +
+          form.username.value +
+          "&password=" +
+          form.password.value;
+
+        Http.send(params);
+      }
+    </script>
+  </footer>
+</html>

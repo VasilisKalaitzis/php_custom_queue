@@ -1,0 +1,21 @@
+CREATE DATABASE consumer_producer;
+
+CREATE TABLE IF NOT EXISTS `queue` (
+`id` int(20) NOT NULL AUTO_INCREMENT,
+`action` varchar(50) NOT NULL,
+`data` varchar(50) NOT NULL,
+PRIMARY KEY (`id`),
+UNIQUE KEY `order_id` (`order_id`)
+);
+
+CREATE TABLE IF NOT EXISTS `users` (
+`id` int(20) NOT NULL AUTO_INCREMENT,
+`username` varchar(50) NOT NULL,
+`password` varchar(50) NOT NULL,
+`email` varchar(50) NOT NULL,
+`status` BOOL NOT NULL,
+PRIMARY KEY (`id`),
+UNIQUE KEY `order_id` (`order_id`)
+);
+
+INSERT INTO `users` values ('helloprint','P@ssw0rd!','test@asdasd.com',1)

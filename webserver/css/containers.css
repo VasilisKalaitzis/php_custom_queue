@@ -1,0 +1,53 @@
+.flexcontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.flexcontainer .flexcontainer-block {
+  display: inline-block;
+  text-align: left;
+}
+
+.flexcontainer .flexcontainer-block {
+  margin: 10px 0px;
+}
+.flexcontainer .col-12 {
+  width: 100%;
+}
+
+.flexcontainer .col-10 {
+  width: 83.3%;
+}
+
+.flexcontainer .col-8 {
+  width: 66.6%;
+}
+
+.flexcontainer .col-6 {
+  width: 50%;
+}
+
+.flexcontainer .col-4 {
+  width: 33.3%;
+}
+
+.flexcontainer .col-3 {
+  width: 25%;
+}
+
+.flexcontainer .col-2 {
+  width: 16.6%;
+}
+/*# sourceMappingURL=containers.css.map */
